@@ -57,12 +57,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Passage.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyWeak.cs" />
     <Compile Include="Assets\Scripts\EnemyChase.cs" />
+    <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Cherry.cs" />
     <Compile Include="Assets\Scripts\BlueGuy.cs" />
     <Compile Include="Assets\Scripts\EnemyHome.cs" />
     <Compile Include="Assets\Scripts\Orange.cs" />
+    <Compile Include="Assets\Scripts\EnemyScatter.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

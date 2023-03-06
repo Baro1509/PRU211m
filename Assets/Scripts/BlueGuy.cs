@@ -36,4 +36,13 @@ public class BlueGuy : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        ResetState();
+    }
+    public void ResetState()
+    {
+        movement.ResetState(); 
+        gameObject.SetActive(true);
+    }
 }
