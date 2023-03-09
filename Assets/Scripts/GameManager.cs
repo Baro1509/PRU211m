@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Text gameOverText;
     public Text scoreText;
     public Text liveText;
+    private GameObject back;
+    private GameObject again;
 
     public int EnemyMultiplier { get; private set; } = 1;
     public int score { get; private set; }
@@ -20,6 +22,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NewGame();
+        again = GameObject.FindWithTag("Again button");
+        again.SetActive(false);
+        back = GameObject.FindWithTag("Back button");
+        back.SetActive(false);
     }
 
     private void Update()
@@ -116,12 +122,23 @@ public class GameManager : MonoBehaviour
             int index = SceneManager.GetActiveScene().buildIndex;
             if(index == 0)
             {
-                SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
-            }else if(index == 1)
+                Invoke("ChangeScene",3);
+            }
+            else if(index == 1)
             {
-                Invoke(nameof(NewRound), 3f);
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    enemies[i].gameObject.SetActive(false);
+                }
+                again.SetActive(true);
+                back.SetActive(true);
             }
         } 
+    }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
     }
         
     public void OrangeEaten(Orange orange)
@@ -148,7 +165,15 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    
+    public void AgainOnClick()
+    {
+        SceneManager.LoadScene("Pixel Adventure 2", LoadSceneMode.Single);
+    }
+
+    public void BackOnClick()
+    {
+        SceneManager.LoadScene("Main Menu",LoadSceneMode.Single);
+    }
 
     private void ResetMultiplier()
     {

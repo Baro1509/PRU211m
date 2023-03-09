@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     
 
     public new Rigidbody2D rigidbody { get; private set; }
-    public Vector2 direction { get; private set; }
+    public Vector2 direction { get;  set; }
     public Vector2 nextDirection { get; private set; }
     public Vector3 startingPosition { get; private set; }
 
@@ -50,9 +50,8 @@ public class Movement : MonoBehaviour
     {
         Vector2 position = rigidbody.position;
         Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
-
+        
         rigidbody.MovePosition(position + translation);
-
     }
 
     public void SetDirection(Vector2 direction, bool forced = false)
@@ -64,14 +63,11 @@ public class Movement : MonoBehaviour
         {
             
             this.direction = direction;
-            nextDirection = Vector2.zero;
-            
+            nextDirection = Vector2.zero;   
         }
         else
         {
-            
             nextDirection = direction;
-            
         }
     }
 
