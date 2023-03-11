@@ -13,12 +13,12 @@ public class Movement : MonoBehaviour
     public Vector2 direction { get;  set; }
     public Vector2 nextDirection { get; private set; }
     public Vector3 startingPosition { get; private set; }
-
+    
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
-        
+       
     }
 
     private void Start()

@@ -15,6 +15,7 @@ public class EnemyChase : EnemyBehavior
 
         if (node != null && enabled && !enemy.weak.enabled)
         {
+            
             Vector2 direction = Vector2.zero;
             float min = float.MaxValue;
 
@@ -30,6 +31,17 @@ public class EnemyChase : EnemyBehavior
             }
 
             enemy.movement.SetDirection(direction);
+            if(direction == Vector2.right)
+            {
+                enemy.anim.SetBool("isMove", true);
+                enemy.flip.x = -1;
+                transform.localScale = enemy.flip;
+            }else if(direction == Vector2.left)
+            {
+                enemy.anim.SetBool("isMove", true);
+                enemy.flip.x = 1;
+                transform.localScale = enemy.flip;
+            }
         }
     }
 }

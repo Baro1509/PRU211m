@@ -42,13 +42,16 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: runHorizontal
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: runVertical
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4567098471291696241}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -70,13 +73,16 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: runVertical
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: runHorizontal
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4567098471291696241}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -134,7 +140,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b544ea82728a7f449b6603110a9c2de5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 93054c109c2753a41a0798cac8ef3208, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -154,13 +160,16 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: runHorizontal
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: runVertical
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9044163548616759263}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.72727275
   m_HasExitTime: 0
@@ -174,26 +183,26 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Controller
+  m_Name: PlayerController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: runHorizontal
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: runVertical
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: isIdle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
@@ -231,7 +240,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -262,7 +271,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -312,13 +321,16 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: runVertical
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: runHorizontal
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2464244568942213541}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.72727275
   m_HasExitTime: 0

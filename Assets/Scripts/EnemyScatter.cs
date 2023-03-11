@@ -14,7 +14,8 @@ public class EnemyScatter : EnemyBehavior
         
         if(node != null && enabled && !enemy.weak.enabled)
         {
-            
+            //enemy.Animated();
+
             int index = Random.Range(0, node.available.Count);
             if (node.available.Count > 1 && node.available[index] == -enemy.movement.direction)
             {
@@ -25,8 +26,19 @@ public class EnemyScatter : EnemyBehavior
                     index = 0;
                 }
             }
-            
             enemy.movement.SetDirection(node.available[index]);
+            if (node.available[index] == Vector2.right)
+            {
+                enemy.anim.SetBool("isMove", true);
+                enemy.flip.x = -1;
+                transform.localScale = enemy.flip;
+            }
+            else if (node.available[index] == Vector2.left)
+            {
+                enemy.anim.SetBool("isMove", true);
+                enemy.flip.x = 1;
+                transform.localScale = enemy.flip;
+            }
         }
     }
 }

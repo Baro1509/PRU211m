@@ -18,9 +18,17 @@ public class GameManager : MonoBehaviour
     public int EnemyMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int live { get; private set; }
-
+    private int index;
     private void Start()
     {
+        if(CheckIndex() == 1)
+        {
+            AudioManager.Instance.PlayMusic("Level 1 theme");
+        }
+        else if(CheckIndex() == 2)
+        {
+            AudioManager.Instance.PlayMusic("Level 2 theme");
+        }
         NewGame();
         again = GameObject.FindWithTag("Again button");
         again.SetActive(false);
@@ -34,6 +42,13 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+        CheckIndex();
+    }
+
+    public int CheckIndex()
+    {
+        index = SceneManager.GetActiveScene().buildIndex;
+        return index;
     }
     private void NewGame()
     {
@@ -78,6 +93,7 @@ public class GameManager : MonoBehaviour
         }
 
         player.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySfx("Game Over");
     }
 
     private void SetScore(int score)
@@ -96,12 +112,14 @@ public class GameManager : MonoBehaviour
     {
         SetScore(score + enemy.points * EnemyMultiplier);
         EnemyMultiplier++;
+        AudioManager.Instance.PlaySfx("Enemy Eaten");
     }
 
     public void PlayerKilled()
     {
         player.gameObject.SetActive(false);
         SetLive(live - 1);
+        AudioManager.Instance.PlaySfx("Hurt");
         if (live > 0)
         {
           Invoke(nameof(ResetState),3f);
@@ -116,20 +134,25 @@ public class GameManager : MonoBehaviour
     {
         cherry.gameObject.SetActive(false);
         SetScore(score + cherry.points);
+        AudioManager.Instance.PlaySfx("Eating");
         if (!CheckRemaining())
         {
             player.gameObject.SetActive(false);
-            int index = SceneManager.GetActiveScene().buildIndex;
-            if(index == 0)
+            
+            if(CheckIndex() == 1)
             {
-                Invoke("ChangeScene",3);
+                AudioManager.Instance.audioSource.Pause();
+                AudioManager.Instance.PlaySfx("Level Complete");
+                Invoke(nameof(ChangeScene), 3);
             }
-            else if(index == 1)
+            else if(CheckIndex() == 2)
             {
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     enemies[i].gameObject.SetActive(false);
                 }
+                AudioManager.Instance.audioSource.Pause();
+                AudioManager.Instance.PlaySfx("Level Complete");
                 again.SetActive(true);
                 back.SetActive(true);
             }
@@ -138,7 +161,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(++index, LoadSceneMode.Single);
     }
         
     public void OrangeEaten(Orange orange)
@@ -151,6 +175,7 @@ public class GameManager : MonoBehaviour
         CherryEaten(orange);
         CancelInvoke();
         Invoke(nameof(ResetMultiplier), orange.duration);
+        AudioManager.Instance.PlaySfx("Power");
     }
 
     public bool CheckRemaining()

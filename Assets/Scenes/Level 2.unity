@@ -2466,6 +2466,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &375016240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6291873972860150987, guid: 39c0033f4fbe48d49aacef182efd60b5, type: 3}
+  m_PrefabInstance: {fileID: 909146305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503856926
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,6 +3584,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1383774493, guid: 39c0033f4fbe48d49aacef182efd60b5, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1383774494, guid: 39c0033f4fbe48d49aacef182efd60b5, type: 3}
       propertyPath: player
       value: 
@@ -3638,12 +3647,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1383774494, guid: 39c0033f4fbe48d49aacef182efd60b5, type: 3}
   m_PrefabInstance: {fileID: 909146305}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 375016240}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcae1e6096dadd84b9ddcdfbe0474d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &915418789
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375016240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0011137bc341c9c4491e73d5b88ad47b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &928180283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,8 +3891,6 @@ MonoBehaviour:
   gameOverText: {fileID: 1027017809}
   scoreText: {fileID: 255085105}
   liveText: {fileID: 629335650}
-  back: {fileID: 201777935}
-  again: {fileID: 1505220776}
 --- !u!4 &1009920861
 Transform:
   m_ObjectHideFlags: 0
@@ -4399,6 +4426,14 @@ PrefabInstance:
     - target: {fileID: 519241280715910592, guid: 230bcbe0b40ce7f428e173dc5a84de01, type: 3}
       propertyPath: m_Name
       value: Blue Bird
+      objectReference: {fileID: 0}
+    - target: {fileID: 519241280715910593, guid: 230bcbe0b40ce7f428e173dc5a84de01, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a3d453fbfb68b394f9cacfac4e9b4476, type: 2}
+    - target: {fileID: 519241280715910602, guid: 230bcbe0b40ce7f428e173dc5a84de01, type: 3}
+      propertyPath: speed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 519241280715910602, guid: 230bcbe0b40ce7f428e173dc5a84de01, type: 3}
       propertyPath: obstacleLayer.m_Bits

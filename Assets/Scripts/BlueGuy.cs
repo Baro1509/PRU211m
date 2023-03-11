@@ -7,7 +7,7 @@ public class BlueGuy : MonoBehaviour
     public Movement movement { get; private set; }
     private Animator anim;
     private bool animated = false;
-    Vector3 flip;
+    private Vector3 flip;
     //private Rigidbody2D rgb2d;
 
     private void Awake()
@@ -22,48 +22,65 @@ public class BlueGuy : MonoBehaviour
         // Set the new direction based on the current input
         if (Input.GetAxisRaw("Vertical") >0)
         {
+            movement.SetDirection(Vector2.up);   
+        }
+        else if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            movement.SetDirection(Vector2.down);
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            movement.SetDirection(Vector2.left);
+        }
+        else if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            movement.SetDirection(Vector2.right);
+        }
+        Animated();
+    }
+
+    public void Animated()
+    {
+        if(movement.direction == Vector2.up)
+        {
             animated = true;
-            movement.SetDirection(Vector2.up);
             anim.SetBool("isIdle", !animated);
             anim.SetBool("runVertical", animated);
             anim.SetBool("runHorizontal", !animated);
         }
-        else if (Input.GetAxisRaw("Vertical") < 0)
+        else if(movement.direction == Vector2.down)
         {
             animated = true;
-            movement.SetDirection(Vector2.down);
-            anim.SetBool("isIdle",!animated);
-            anim.SetBool("runVertical",animated);
+            anim.SetBool("isIdle", !animated);
+            anim.SetBool("runVertical", animated);
             anim.SetBool("runHorizontal", !animated);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if(movement.direction == Vector2.left)
         {
             animated = true;
-            movement.SetDirection(Vector2.left);
             anim.SetBool("isIdle", !animated);
             anim.SetBool("runHorizontal", animated);
             anim.SetBool("runVertical", !animated);
             flip.x = -1;
             transform.localScale = flip;
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+        else if(movement.direction == Vector2.right)
         {
             animated = true;
-            movement.SetDirection(Vector2.right);
             anim.SetBool("isIdle", !animated);
             anim.SetBool("runHorizontal", animated);
             anim.SetBool("runVertical", !animated);
             flip.x = 1;
             transform.localScale = flip;
-
         }
-        else if(movement.Occupied(movement.direction))
+        else if (movement.Occupied(movement.direction))
         {
             animated = false;
             anim.SetBool("isIdle", !animated);
             anim.SetBool("runHorizontal", animated);
             anim.SetBool("runVertical", animated);
         }
+        
     }
 
     private void Start()

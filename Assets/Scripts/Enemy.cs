@@ -8,7 +8,9 @@ public class Enemy : MonoBehaviour
     public EnemyChase chase { get; private set; }
     public EnemyScatter scatter { get; private set; }
     public EnemyWeak weak { get; private set; }
-    
+
+    public Vector3 flip;
+    public Animator anim;
     public EnemyBehavior initialBehavior;
     
     public Transform player;
@@ -22,7 +24,8 @@ public class Enemy : MonoBehaviour
         chase = GetComponent<EnemyChase>();
         scatter = GetComponent<EnemyScatter>();
         weak = GetComponent<EnemyWeak>();
-
+        anim = GetComponent<Animator>();
+        flip = transform.localScale;
     }
 
     private void Start()
@@ -59,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             if (weak.enabled)
             {
@@ -71,5 +74,4 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
 }

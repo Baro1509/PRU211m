@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Cherry.cs" />
     <Compile Include="Assets\Scripts\BlueGuy.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\EnemyHome.cs" />
     <Compile Include="Assets\Scripts\Orange.cs" />
     <Compile Include="Assets\Scripts\EnemyScatter.cs" />
